@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 16:42:37 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/04 01:30:11 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/04 01:39:04 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/04 05:22:25 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push(t_stack **node, int num)
+void	error(t_stack	*stack_a, t_stack	*stack_b)
 {
 	t_stack	*temp;
 
-	if (!(*node))
-		return (-1);
-	else
+	if (!stack_a && !stack_b)
+		return ;
+	while (stack_a)
 	{
-		temp = (t_stack *)malloc(sizeof(t_stack));
-		if (!temp)
-			return (-1);
-		temp->data = num; 
-		temp->next = (*node);
-		(*node) = temp;
+		temp = stack_a;
+		stack_a = stack_a->next;
+		free(temp);
 	}
-	return (1);
+	while (stack_b)
+	{
+		temp = stack_b;
+		stack_b = stack_b->next;
+		free(temp);
+	}
+	exit(1);
 }

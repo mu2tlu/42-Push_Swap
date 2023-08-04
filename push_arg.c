@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 16:42:37 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/04 01:30:11 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/01 13:48:09 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/04 00:41:45 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push(t_stack **node, int num)
+int	push_arg(t_stack **node, int num)
 {
+	t_stack	*iter;
 	t_stack	*temp;
 
-	if (!(*node))
-		return (-1);
-	else
+	iter = (*node);
+	if ((*node) == NULL)
 	{
 		temp = (t_stack *)malloc(sizeof(t_stack));
 		if (!temp)
 			return (-1);
-		temp->data = num; 
-		temp->next = (*node);
-		(*node) = temp;
+		temp->data = num;
+		temp->next = NULL;
+		(*node) = temp; 
+	}
+	else
+	{
+		while (iter->next != NULL)
+			iter = iter->next;
+		temp = (t_stack *)malloc(sizeof(t_stack));
+		if (!temp)
+			return (-1);
+		temp->data = num;
+		iter->next = temp;
+		temp->next = NULL;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 17:54:29 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/01 18:00:41 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/04 00:44:00 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 void	printnode(t_stack *node)
 {
-	while (node->next != NULL)
+	while (node != NULL)
 	{
-		printf("%d", node->data);
+		printf("%d ", node->data);
 		node = node->next;
 	}
+	printf("\n");
 }

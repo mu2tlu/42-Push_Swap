@@ -1,17 +1,17 @@
 NAME = push_swap
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SRC = push_swap.c push.c printnode.c
-OBJ = $(SRC:%.c=%.o)
+SRC = push_swap.c push_arg.c push.c pop.c error.c printnode.c
+OBJS = $(SRC:%.c=%.o)
 
 
 
-LIBFT_DIR = include/libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)
 
-$(NAME): $(OBJ) $(LIBFT)
-	@$(CC) -o $(NAME) $(OBJ)  -L$(LIBFT_DIR) -lft
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) -o $(NAME) $(OBJS)  -L$(LIBFT_DIR) -lft
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
@@ -23,7 +23,7 @@ all: $(NAME)
 
 clean:
 	@make -C $(LIBFT_DIR) clean
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJS)
 fclean: clean
 	@make -C $(LIBFT_DIR) fclean
 	@$(RM) $(NAME)
