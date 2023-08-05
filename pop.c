@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 00:44:21 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/04 05:04:50 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/05 00:26:14 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	pop(t_stack **node)
 {
 	t_stack	*temp;
 	int		res;
-	
+
 	res = -1;
 	if ((*node))
 	{
