@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:54:08 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/05 03:04:22 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/06 21:48:54 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,22 @@ char	*argument_check(char	*str)
 	int	i;
 
 	i = 0;
+	while ((str[i] == 32 || (str[i] <= 9 || str[i] <= 13)) && str[i])
+		i++;
 	while (str[i])
 	{
-		if ((str[i] == '+' && str[i + 1] == '-')
-			|| (str[i] == '-' && str[i + 1] == '+')
-			|| (str[i] == '+' && str[i + 1] == '+')
-			|| (str[i] == '-' && str[i + 1] == '-'))
+		if (str[i] == '+' || str[i] == '-') 
 		{
-			write(2, "erorr", 6);
+
+			if (str[i + 1] == '\0' || (str[i + 1] <= 47 || str[i + 1] >= 58))
+			{
+				write(2, "Error", 6);
+				exit(-1);
+			}
+		}
+		else if ((!(str[i] >= '0' && str[i] <= '9')))
+		{
+			write(2, "Error", 6);
 			exit(-1);
 		}
 		i++;
@@ -44,8 +52,18 @@ char	**new_arr(char	**av)
 	tab = NULL;
 	if (!av)
 		return (NULL);
-	tab = ft_split(argument_check(av[1]), ' ');
-	
+	while (av[i])
+		i++;
+	tab = (char **)malloc((i + 1) * sizeof(char *));
+	i = 1;
+	while (av[i])
+	{
+		tab[j] = argument_check(av[i]);
+		i++;
+		j++;
+	}
+	tab[j] = 0;
+	//system("leaks push_swap");
 	return (tab);
 }
 
