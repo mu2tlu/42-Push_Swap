@@ -26,6 +26,9 @@ int		push_arg(t_stack **node, int num);
 int		push(t_stack **node, int num);
 int		pop(t_stack **node);
 void	error(t_stack	*stack_a, t_stack	*stack_b);
+void	diff_char_check(char	**av);
+void	space_or_empty_check(char	**av);
+void	f_exit(void);
 void	printnode(t_stack *node);//dikakt
 
 #endif

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pop.c                                              :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 00:44:21 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/05 00:26:14 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/07 22:19:58 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	pop(t_stack **node)
+int	ft_atoll(char *str)
 {
-	t_stack	*temp;
-	int		res;
+	int	i;
+	int	s;
 
-	res = -1;
-	if ((*node))
-	{
-		temp = (*node);
-		res = temp->data;
-		(*node) = (*node)->next;
-		free(temp);
-	}
-	return (res);
+	i = 0;
+	if (!str[i])
+		return (0);
+	if()
 }

@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 01:39:04 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/04 05:22:25 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/04 00:44:21 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/05 00:26:14 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(t_stack	*stack_a, t_stack	*stack_b)
+int	pop(t_stack **node)
+{
+	t_stack	*temp;
+	int		res;
+
+	res = -1;
+	if ((*node))
+	{
+		temp = (*node);
+		res = temp->data;
+		(*node) = (*node)->next;
+		free(temp);
+	}
+	return (res);
+}
+
+int	push(t_stack **node, int num)
 {
 	t_stack	*temp;
 
-	if (!stack_a && !stack_b)
-		return ;
-	while (stack_a)
+	if (!(*node))
+		return (-1);
+	else
 	{
-		temp = stack_a;
-		stack_a = stack_a->next;
-		free(temp);
+		temp = (t_stack *)malloc(sizeof(t_stack));
+		if (!temp)
+			return (-1);
+		temp->data = num; 
+		temp->next = (*node);
+		(*node) = temp;
 	}
-	while (stack_b)
-	{
-		temp = stack_b;
-		stack_b = stack_b->next;
-		free(temp);
-	}
-	exit(1);
+	return (1);
 }
