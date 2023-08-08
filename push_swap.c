@@ -11,28 +11,19 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 int	main(int ac, char **av)
 {
-	int		i;
-	int		error_i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	i = 1;
 	if (ac > 1)
 	{
 		diff_char_check(av + 1);
-		while (av[i])
-		{
-			error_i = push_arg(&stack_a, ft_atoi(av[i]));
-			i++;
-		}
-		if (error_i == -1)
-			error(stack_a, stack_b);
+		ft_split_arr(av, &stack_a, &stack_b);
+
 		printnode(stack_a);
 	}
 	return (0);

@@ -1,7 +1,7 @@
 NAME = 	push_swap
 CC = 	gcc
 FLAGS = -Wall -Wextra -Werror -g
-SRC = 	push_swap.c push_arg.c pop_and_push.c argument_check.c error.c \
+SRC = 	push_swap.c push_arg.c pop_and_push.c argument_check.c error.c ft_split_and_ft_atoll.c \
 		printnode.c
 OBJS = $(SRC:%.c=%.o)
 
