@@ -19,12 +19,13 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac > 1)
+	diff_char_check(av + 1);
+	if (ac == 2)
+		ft_split_arr2(av, &stack_a, &stack_b);
+	else if (ac > 2)
 	{
-		diff_char_check(av + 1);
 		ft_split_arr(av, &stack_a, &stack_b);
-
-		printnode(stack_a);
 	}
+	printnode(stack_a);
 	return (0);
 }
