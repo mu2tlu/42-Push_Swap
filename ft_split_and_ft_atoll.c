@@ -6,17 +6,17 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/08 21:13:42 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/09 17:45:11 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoll(const char *str)
+long	ft_atoll(const char	*str)
 {
-	long				i;
-	long				sign;
-	unsigned long int	result;
+	long	i;
+	long	sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -54,7 +54,7 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 		return ;
 	while (tab[i])
 	{
-		error_i = push_arg(stack_a, ft_atoll(tab[i]));
+		error_i = push_arg(stack_a, integer_check(ft_atoll(tab[i])));
 		if (error_i == -1)
 			error(*stack_a, *stack_b);
 		i++;
@@ -77,7 +77,7 @@ void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b)
 		j = 0;
 		while (tab[j])
 		{
-			error_i = push_arg(stack_a, ft_atoll(tab[j]));
+			error_i = push_arg(stack_a, integer_check(ft_atoll(tab[j])));
 			if (error_i == -1)
 				error(*stack_a, *stack_b);
 			j++;

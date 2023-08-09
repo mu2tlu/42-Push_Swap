@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/08 12:50:22 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/09 16:54:19 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ void	f_exit(void)
 {
 	write(2, "Error", 6);
 	exit(-1);
+}
+
+int	integer_check(long int num)
+{
+	if (!(num >= -2147483648 && num <= 2147483647))
+		f_exit();
+	return (num);
 }
 
 void	space_or_empty_check(char	**av)
