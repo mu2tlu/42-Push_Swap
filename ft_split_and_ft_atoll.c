@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/09 17:45:11 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/10 15:27:56 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 	int		i;
 
 	i = 0;
-	if (!av)
-		return ;
-	else
-		tab = ft_split(av[1], ' ');
+	tab = ft_split(av[1], ' ');
 	if (!tab)
 		return ;
 	while (tab[i])
@@ -63,25 +60,15 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 
 void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b)
 {
-	char	**tab;
 	int		error_i;
 	int		i;
-	int		j;
 
 	i = 1;
-	if (!av)
-		return ;
 	while (av[i])
 	{
-		tab = ft_split(av[i], ' ');
-		j = 0;
-		while (tab[j])
-		{
-			error_i = push_arg(stack_a, integer_check(ft_atoll(tab[j])));
-			if (error_i == -1)
-				error(*stack_a, *stack_b);
-			j++;
-		}
+		error_i = push_arg(stack_a, integer_check(ft_atoll(av[i])));
+		if (error_i == -1)
+			error(*stack_a, *stack_b);
 		i++;
 	}
 }
