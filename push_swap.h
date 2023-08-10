@@ -33,6 +33,7 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b);
 void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b);
 long	ft_atoll(const char *str);
 int		integer_check(long num);
+int		sort_check(char **av, int num);
 
 void	printnode(t_stack *node);//dikakt
 

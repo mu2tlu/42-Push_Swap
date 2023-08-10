@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/09 16:54:19 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/10 19:44:35 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,25 @@ void	f_exit(void)
 	exit(-1);
 }
 
-int	integer_check(long int num)
+int	integer_check(long num)
 {
 	if (!(num >= -2147483648 && num <= 2147483647))
 		f_exit();
+	return (num);
+}
+
+int	sort_check(char **av, int num)
+{
+	int	i_check;
+	int	i;
+
+	i = 0;
+	while (av[++i])
+	{
+		i_check = ft_atoi(av[i]);
+		if (num < i_check)
+			exit(-1);
+	}
 	return (num);
 }
 
