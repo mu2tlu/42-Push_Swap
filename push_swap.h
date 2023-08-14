@@ -31,9 +31,9 @@ void	space_or_empty_check(char	**av);
 void	f_exit(void);
 void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b);
 void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b);
-long	ft_atoll(const char *str);
+long	ft_atoll(char *str);
 int		integer_check(long num);
-int		sort_check(char **av, int num);
+int		sort_check(char **av, int len, int num, int num2);
 
 void	printnode(t_stack *node);//dikakt
 

@@ -6,13 +6,13 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/10 19:42:04 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/14 16:14:56 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoll(const char	*str)
+long	ft_atoll(char *str)
 {
 	long	i;
 	long	sign;
@@ -21,6 +21,8 @@ long	ft_atoll(const char	*str)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (!str)
+		return (0);
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
@@ -49,7 +51,7 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 
 	i = 0;
 	size = 0;
-	tab = ft_split(av[1], ' ');
+	tab = ft_split(av[0], ' ');
 	if (!tab)
 		return ;
 	while (tab[size])
@@ -58,7 +60,8 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 		exit(-1);
 	while (tab[i])
 	{
-		check = sort_check(tab, integer_check(ft_atoll(tab[i])));
+		check = sort_check(tab, i, integer_check(ft_atoll(tab[i])), \
+		integer_check(ft_atoll(tab[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
 			error(*stack_a, *stack_b);
@@ -81,7 +84,8 @@ void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b)
 		exit(-1);
 	while (av[i])
 	{
-		check = sort_check(av, integer_check(ft_atoll(av[i])));
+		check = sort_check(av, i, integer_check(ft_atoll(av[i])), \
+		integer_check(ft_atoll(av[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
 			error(*stack_a, *stack_b);

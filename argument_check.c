@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/10 19:44:35 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/14 14:42:05 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,24 @@ int	integer_check(long num)
 	return (num);
 }
 
-int	sort_check(char **av, int num)
+int	sort_check(char **av, int len, int num, int num2)
 {
-	int	i_check;
-	int	i;
+	static int	flag;
+	int			i_check;
+	int			i;
 
 	i = 0;
-	while (av[++i])
+	if (av[len + 1] && num2 < num)
+		flag = 1;
+	while (i < len)
 	{
 		i_check = ft_atoi(av[i]);
-		if (num < i_check)
-			exit(-1);
+		if (i_check == num)
+			f_exit();
+		i++;
 	}
+	if (flag != 1 && av[len + 1] == NULL)
+		exit(-1);
 	return (num);
 }
 
