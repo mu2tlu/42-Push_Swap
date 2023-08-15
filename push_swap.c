@@ -21,11 +21,10 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	diff_char_check(av + 1);
 	if (ac == 2)
-		ft_split_arr2(av + 1, &stack_a, &stack_b);
+		argv_single((av + 1), &stack_a, &stack_b);
 	else if (ac > 2)
-	{
-		ft_split_arr(av + 1, &stack_a, &stack_b);
-	}
+		argv_double((av + 1), &stack_a, &stack_b);
+
 	printnode(stack_a);
 	return (0);
 }

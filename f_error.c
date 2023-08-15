@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	error(t_stack	*stack_a, t_stack	*stack_b)
+void	f_error(t_stack	*stack_a, t_stack	*stack_b)
 {
 	t_stack	*temp;
 

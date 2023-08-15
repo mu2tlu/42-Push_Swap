@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/14 16:14:56 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/15 16:23:32 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ long	ft_atoll(char *str)
 	return (result * sign);
 }
 
-void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
+void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
 {
 	char	**tab;
 	int		error_i;
@@ -60,16 +60,16 @@ void	ft_split_arr2(char **av, t_stack **stack_a, t_stack	**stack_b)
 		exit(-1);
 	while (tab[i])
 	{
-		check = sort_check(tab, i, integer_check(ft_atoll(tab[i])), \
-		integer_check(ft_atoll(tab[i + 1])));
+		check = sort_check(tab, i, int_check(ft_atoll(tab[i])), \
+		int_check(ft_atoll(tab[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
-			error(*stack_a, *stack_b);
+			f_error(*stack_a, *stack_b);
 		i++;
 	}
 }
 
-void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b)
+void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b)
 {
 	int		error_i;
 	int		check;
@@ -84,11 +84,11 @@ void	ft_split_arr(char **av, t_stack **stack_a, t_stack	**stack_b)
 		exit(-1);
 	while (av[i])
 	{
-		check = sort_check(av, i, integer_check(ft_atoll(av[i])), \
-		integer_check(ft_atoll(av[i + 1])));
+		check = sort_check(av, i, int_check(ft_atoll(av[i])), \
+		int_check(ft_atoll(av[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
-			error(*stack_a, *stack_b);
+			f_error(*stack_a, *stack_b);
 		i++;
 	}
 }
