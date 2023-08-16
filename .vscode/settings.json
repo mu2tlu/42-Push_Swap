@@ -2,6 +2,7 @@
     "files.associations": {
         "ratio": "c",
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "sstream": "c"
     }
 }

@@ -33,6 +33,7 @@ void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b);
 long	ft_atoll(char *str);
 int		int_check(long num);
 int		sort_check(char **av, int len, int num, int num2);
+void	free_tab(char **tab);
 
 void	printnode(t_stack *node);//dikakt
 

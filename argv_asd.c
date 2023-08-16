@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_and_ft_atoll.c                            :+:      :+:    :+:   */
+/*   argv_asd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/15 16:23:32 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:10:01 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,13 @@ void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
 	char	**tab;
 	int		error_i;
 	int		check;
-	int		size;
 	int		i;
 
 	i = 0;
-	size = 0;
 	tab = ft_split(av[0], ' ');
 	if (!tab)
 		return ;
-	while (tab[size])
-		size++;
-	if (size == 1)
+	if (av[i + 1] == NULL)
 		exit(-1);
 	while (tab[i])
 	{
@@ -67,23 +63,34 @@ void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
 			f_error(*stack_a, *stack_b);
 		i++;
 	}
+	free_tab(tab);
+}
+
+void	free_tab(char **tab)
+{
+	int	i; 
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }
 
 void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b)
 {
 	int		error_i;
 	int		check;
-	int		size;
 	int		i;
 
 	i = 0;
-	size = 0;
-	while (av[size])
-		size++;
-	if (size == 1)
+	if (av[i + 1] == NULL)
 		exit(-1);
 	while (av[i])
 	{
+		diff_char_check(&av[i]);
 		check = sort_check(av, i, int_check(ft_atoll(av[i])), \
 		int_check(ft_atoll(av[i + 1])));
 		error_i = push_arg(stack_a, check);
