@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 20:05:56 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 20:08:33 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	f_exit(void)
 	exit(-1);
 }
 
-// void	spc_check(char *str)
-// {
+char	*spc_check(char *str)
+{
 	
-// }
+}
 
 int	sort_check(char **av, int len, char *tab)
 {
