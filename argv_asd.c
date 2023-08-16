@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 16:16:05 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:17:00 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ long	ft_atoll(char *str)
 	return (result * sign);
 }
 
-void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
+void	argv_single(char **av, t_stack **stack_a)
 {
 	char	**tab;
 	int		error_i;
@@ -60,7 +60,7 @@ void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
 		int_check(ft_atoll(tab[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
-			f_error(*stack_a, *stack_b);
+			f_error_a(*stack_a);
 		i++;
 	}
 	free_tab(tab);
@@ -79,7 +79,7 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b)
+void	argv_double(char **av, t_stack **stack_a)
 {
 	int		error_i;
 	int		check;
@@ -94,7 +94,7 @@ void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b)
 		int_check(ft_atoll(av[i + 1])));
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
-			f_error(*stack_a, *stack_b);
+			f_error_a(*stack_a);
 		i++;
 	}
 }
