@@ -33,7 +33,7 @@ void	f_exit(void);
 void	argv_single(char **av, t_stack **stack_a);
 void	argv_double(char **av, t_stack **stack_a);
 long	ft_atoll(char *str);
-int		int_check(long num);
+void	spc_check(char *str);
 int		sort_check(char **av, int len, char *tab);
 void	free_tab(char **tab);
 

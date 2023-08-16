@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 19:58:28 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 20:05:56 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void	f_exit(void)
 	exit(-1);
 }
 
-int	int_check(long num)
-{
-	if (!(num >= -2147483648 && num <= 2147483647))
-		f_exit();
-	return (num);
-}
+// void	spc_check(char *str)
+// {
+	
+// }
 
 int	sort_check(char **av, int len, char *tab)
 {
@@ -31,7 +29,7 @@ int	sort_check(char **av, int len, char *tab)
 	int			i_check;
 	int			i;
 	long		num;
-	long		num2;
+	int			num2;
 
 	i = 0;
 	num2 = 0;
@@ -39,7 +37,7 @@ int	sort_check(char **av, int len, char *tab)
 	if (!(num >= -2147483648 && num <= 2147483647))
 		f_exit();
 	if (av[len + 1])
-		num2 = ft_atoll(av[len + 1]);
+		num2 = ft_atoi(av[len + 1]);
 	if (av[len + 1] && num2 < num)
 		flag = 1;
 	while (i < len)
