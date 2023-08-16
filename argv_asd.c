@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 19:17:00 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:22:24 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void	argv_single(char **av, t_stack **stack_a)
 		exit(-1);
 	while (tab[i])
 	{
-		check = sort_check(tab, i, int_check(ft_atoll(tab[i])), \
-		int_check(ft_atoll(tab[i + 1])));
+		check = sort_check(tab, i, tab[i]);
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
 			f_error_a(*stack_a);
@@ -90,8 +89,7 @@ void	argv_double(char **av, t_stack **stack_a)
 		exit(-1);
 	while (av[i])
 	{
-		check = sort_check(av, i, int_check(ft_atoll(av[i])), \
-		int_check(ft_atoll(av[i + 1])));
+		check = sort_check(av, i, av[i]);
 		error_i = push_arg(stack_a, check);
 		if (error_i == -1)
 			f_error_a(*stack_a);
