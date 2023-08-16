@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 19:42:07 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:58:28 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ int	sort_check(char **av, int len, char *tab)
 	static int	flag;
 	int			i_check;
 	int			i;
-	int			num;
-	int			num2;
+	long		num;
+	long		num2;
 
 	i = 0;
 	num2 = 0;
-	num = int_check(ft_atoll(tab));
+	num = ft_atoll(tab);
+	if (!(num >= -2147483648 && num <= 2147483647))
+		f_exit();
 	if (av[len + 1])
-		num2 = int_check(ft_atoll(av[len + 1]));
+		num2 = ft_atoll(av[len + 1]);
 	if (av[len + 1] && num2 < num)
 		flag = 1;
 	while (i < len)
