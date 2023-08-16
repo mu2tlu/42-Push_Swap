@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 16:14:01 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:16:05 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,13 @@ void	argv_single(char **av, t_stack **stack_a, t_stack	**stack_b)
 	char	**tab;
 	int		error_i;
 	int		check;
-	int		size;
 	int		i;
 
 	i = 0;
-	size = 0;
 	tab = ft_split(av[0], ' ');
 	if (!tab)
 		return ;
-	while (tab[size])
-		size++;
-	if (size == 1)
+	if (tab[i + 1] == NULL)
 		exit(-1);
 	while (tab[i])
 	{
@@ -87,14 +83,10 @@ void	argv_double(char **av, t_stack **stack_a, t_stack	**stack_b)
 {
 	int		error_i;
 	int		check;
-	int		size;
 	int		i;
 
 	i = 0;
-	size = 0;
-	while (av[size])
-		size++;
-	if (size == 1)
+	if (av[i + 1] == NULL)
 		exit(-1);
 	while (av[i])
 	{
