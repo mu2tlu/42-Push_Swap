@@ -14,7 +14,8 @@
 
 void	the_rules(t_stack *stack_a, t_stack *stack_b)
 {
-
+	printnode(stack_a);
+	printnode(stack_b);
 }
 
 int	main(int ac, char **av)
