@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/16 20:18:00 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/17 16:33:22 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*spc_check(char *str)
 	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else if (str[i] == '+' || str[i] == '-')
 			i++;
 		else
 			f_exit(); 
