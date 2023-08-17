@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_a.c                                          :+:      :+:    :+:   */
+/*   moves_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/17 19:40:21 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/17 19:41:02 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	sa(t_stack **stack_a)
+void	sb(t_stack **stack_b)
 {
 	t_stack	*temp;
 
-	if (!stack_a)
+	if (!stack_b)
 		return ;
-	else if ((*stack_a)->next != NULL)
+	else if ((*stack_b)->next != NULL)
 	{
-		temp = (*stack_a);
-		(*stack_a) = (*stack_a)->next;
-		temp->next = (*stack_a)->next;
-		(*stack_a)->next = temp;
-		write(1, "sa\n", 3);
+		temp = (*stack_b);
+		(*stack_b) = (*stack_b)->next;
+		temp->next = (*stack_b)->next;
+		(*stack_b)->next = temp;
+		write(1, "sb\n", 3);
 	}
 }

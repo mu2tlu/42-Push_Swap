@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+void	the_rules(t_stack *stack_a, t_stack *stack_b)
+{
+
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -21,10 +26,17 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	diff_char_check(av + 1);
 	if (ac == 2)
+	{
 		argv_single((av + 1), &stack_a);
+		the_rules(stack_a, stack_b);
+	}
 	else if (ac > 2)
+	{
 		argv_double((av + 1), &stack_a);
-	printnode(stack_a);
+		the_rules(stack_a, stack_b);
+	}
+	printf("2: %p\n", stack_a);
+	printf("2: %p\n", stack_b);
 	ff_error(stack_a, stack_b);
 	return (0);
 }
