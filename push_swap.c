@@ -35,8 +35,6 @@ int	main(int ac, char **av)
 		argv_double((av + 1), &stack_a);
 		the_rules(stack_a, stack_b);
 	}
-	printf("2: %p\n", stack_a);
-	printf("2: %p\n", stack_b);
 	ff_error(stack_a, stack_b);
 	return (0);
 }
