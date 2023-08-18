@@ -3,6 +3,7 @@
         "ratio": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "unistd.h": "c"
     }
 }

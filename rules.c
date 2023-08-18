@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_b.c                                          :+:      :+:    :+:   */
+/*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/18 17:23:26 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/08/18 17:37:26 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	sb(t_stack **stak_b, int b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*temp;
+	sa(&stack_a, 0);
+	sb(&stack_b, 0);
+	write(1, "ss\n", 3);
+}
 
-	if (!(*stak_b))
-		return ;
-	else if ((*stak_b)->next != NULL)
-	{
-		temp = (*stak_b);
-		(*stak_b) = (*stak_b)->next;
-		temp->next = (*stak_b)->next;
-		(*stak_b)->next = temp;
-		if (b == 1)
-			write(1, "sb\n", 3);
-	}
+void	the_rules(t_stack *stack_a, t_stack *stack_b)
+{
+    (void) stack_b;
+	printnode(stack_a);
 }

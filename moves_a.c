@@ -6,15 +6,14 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/17 19:40:21 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/18 17:24:48 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 #include <unistd.h>
 
-void	sa(t_stack **stack_a)
+void	sa(t_stack **stack_a, int a)
 {
 	t_stack	*temp;
 
@@ -26,6 +25,7 @@ void	sa(t_stack **stack_a)
 		(*stack_a) = (*stack_a)->next;
 		temp->next = (*stack_a)->next;
 		(*stack_a)->next = temp;
-		write(1, "sa\n", 3);
+		if (a == 1)
+			write(1, "sa\n", 3);
 	}
 }

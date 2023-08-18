@@ -36,10 +36,10 @@ long	ft_atoll(char *str);
 char	*spc_check(char *str);
 int		sort_check(char **av, int len, char *tab);
 void	free_tab(char **tab);
-void	sa(t_stack **stack_a);
-void	sb(t_stack **stack_b);
 void	the_rules(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack **stack_a, int a);
+void	sb(t_stack **stack_b, int b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
 void	printnode(t_stack *node);//dikakt
-
 #endif
