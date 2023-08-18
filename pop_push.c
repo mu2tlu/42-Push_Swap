@@ -13,18 +13,25 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	pop(t_stack **node)
+int	pop(t_stack **node_x, t_stack **node_y)
 {
 	t_stack	*temp;
 	int		res;
 
-	res = -1;
-	if ((*node))
+	res = 0;
+	if (!*node_x)
+		ff_error(*node_x, *node_y);
+	else if ((*node_x)->next)
 	{
-		temp = (*node);
+		temp = (*node_x);
 		res = temp->data;
-		(*node) = (*node)->next;
+		(*node_x) = (*node_x)->next;
 		free(temp);
+	}
+	else
+	{
+		res = (*node_x)->data;
+		free(*node_x);
 	}
 	return (res);
 }
@@ -33,8 +40,14 @@ int	push(t_stack **node, int num)
 {
 	t_stack	*temp;
 
-	if (!(*node))
-		return (-1);
+	if (!*node)
+	{
+		*node = (t_stack *)malloc(sizeof(t_stack));
+		if (!*node)
+			return (-1);
+		(*node)->data = num;
+		(*node)->next = NULL;
+	}
 	else
 	{
 		temp = (t_stack *)malloc(sizeof(t_stack));

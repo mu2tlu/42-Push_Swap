@@ -23,7 +23,7 @@ typedef struct s_stack
 
 int		push_arg(t_stack **node, int num);
 int		push(t_stack **node, int num);
-int		pop(t_stack **node);
+int		pop(t_stack **node, t_stack **node2);
 void	ff_error(t_stack	*stack_a, t_stack	*stack_b);
 void	f_error_a(t_stack	*stack_a);
 void	f_error_b(t_stack	*stack_b);
@@ -36,10 +36,11 @@ long	ft_atoll(char *str);
 char	*spc_check(char *str);
 int		sort_check(char **av, int len, char *tab);
 void	free_tab(char **tab);
-void	the_rules(t_stack *stack_a, t_stack *stack_b);
+void	the_rules(t_stack **stack_a, t_stack **stack_b);
 void	sa(t_stack **stack_a, int a);
 void	sb(t_stack **stack_b, int b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b);
 
 void	printnode(t_stack *node);//dikakt
 #endif

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/18 17:24:48 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/18 19:44:53 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sa(t_stack **stack_a, int a)
 {
 	t_stack	*temp;
 
-	if (!stack_a)
+	if (!*stack_a)
 		return ;
 	else if ((*stack_a)->next != NULL)
 	{
@@ -28,4 +28,13 @@ void	sa(t_stack **stack_a, int a)
 		if (a == 1)
 			write(1, "sa\n", 3);
 	}
+}
+
+void	pa(t_stack **stack_a, t_stack **stack_b)
+{
+	if (!*stack_b)
+		return ;
+	if (push(stack_a, pop(stack_b, stack_a)) == -1)
+		ff_error(*stack_a, *stack_b);
+	write(1, "pa\n", 3);
 }
