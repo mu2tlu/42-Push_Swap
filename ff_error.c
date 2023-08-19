@@ -33,31 +33,16 @@ void	ff_error(t_stack	*stack_a, t_stack	*stack_b)
 	exit(1);
 }
 
-void	f_error_a(t_stack	*stack_a)
+void	f_error(t_stack	*stack)
 {
 	t_stack	*temp;
 
-	if (!stack_a)
+	if (!stack)
 		return ;
-	while (stack_a)
+	while (stack)
 	{
-		temp = stack_a;
-		stack_a = stack_a->next;
-		free(temp);
-	}
-	exit(1);
-}
-
-void	f_error_b(t_stack	*stack_b)
-{
-	t_stack	*temp;
-
-	if (!stack_b)
-		return ;
-	while (stack_b)
-	{
-		temp = stack_b;
-		stack_b = stack_b->next;
+		temp = stack;
+		stack = stack->next;
 		free(temp);
 	}
 	exit(1);

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 00:00:49 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/20 00:44:36 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	rb(t_stack **stack_a, t_stack **stack_b, int b)
 	t_stack	*first2;
 
 	if (!(*stack_b))
-		ff_error(*stack_a, NULL);
+		f_error(*stack_a);
 	else
 	{
-		first2 = (*stack_b)->next;
 		first = (*stack_b);
+		first2 = (*stack_b)->next;
 		while ((*stack_b)->next != NULL)
 			(*stack_b) = (*stack_b)->next;
 		(*stack_b)->next = first;

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/19 23:57:15 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/20 00:46:07 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	ra(t_stack **stack_a, t_stack **stack_b, int a)
 	t_stack	*first2;
 
 	if (!(*stack_a))
-		ff_error(NULL, *stack_b);
+		f_error(*stack_b);
 	else
 	{
-		first2 = (*stack_a)->next;
 		first = (*stack_a);
+		first2 = (*stack_a)->next;
 		while ((*stack_a)->next != NULL)
 			(*stack_a) = (*stack_a)->next;
 		(*stack_a)->next = first;
