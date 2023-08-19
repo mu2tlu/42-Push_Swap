@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/18 20:05:49 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/20 00:09:52 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,20 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	write(1, "ss\n", 3);
 }
 
+void	rr(t_stack *stack_a, t_stack *stack_b)
+{
+	ra(&stack_a, &stack_b, 0);
+	rb(&stack_b, &stack_a, 0);
+	write(1, "ss\n", 3);
+}
+
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
 {
-	push (stack_b, 5);
-	push (stack_b, 4);
-	push (stack_b, 3);
-	push (stack_b, 2);
-	push (stack_b, 1);
-	write(1, "a\n", 2);
+	push (stack_b, 9);
+	push (stack_b, 8);
+	push (stack_b, 7);
 	printnode(*stack_a);
-	write(1, "b\n", 2);
-	printnode(*stack_b);
-	pa(stack_a, stack_b);
-	sa(stack_a, 1);
-	sb(stack_b, 1);
-	write(1, "a\n", 2);
+	rb(stack_b, stack_a, 1);
+	rr(*stack_b, *stack_a);
 	printnode(*stack_a);
-	write(1, "b\n", 2);
-	printnode(*stack_b);
 }
