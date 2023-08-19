@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 00:09:52 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/20 00:10:57 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 {
 	ra(&stack_a, &stack_b, 0);
 	rb(&stack_b, &stack_a, 0);
-	write(1, "ss\n", 3);
+	write(1, "rr\n", 3);
 }
 
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
