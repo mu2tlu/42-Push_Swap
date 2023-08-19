@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/18 17:45:47 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/19 21:38:07 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,13 @@ void	sb(t_stack **stack_b, int b)
 		if (b == 1)
 			write(1, "sb\n", 3);
 	}
+}
+
+void	pb(t_stack **stack_b, t_stack **stack_a)
+{
+	if (!*stack_a)
+		return ;
+	if (push(stack_b, pop(stack_a, stack_b)) == -1)
+		ff_error(*stack_a, *stack_b);
+	write(1, "pa\n", 3);
 }

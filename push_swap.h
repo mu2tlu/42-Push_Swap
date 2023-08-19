@@ -41,6 +41,7 @@ void	sa(t_stack **stack_a, int a);
 void	sb(t_stack **stack_b, int b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_b, t_stack **stack_a);
 
 void	printnode(t_stack *node);//dikakt
 #endif
