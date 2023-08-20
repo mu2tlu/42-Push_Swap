@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 01:03:57 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/20 20:41:50 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,32 @@ void	ra(t_stack **stack_a, t_stack **stack_b, int a)
 		if (a == 1)
 			write(1, "ra\n", 3);
 	}
+}
+
+void	rra(t_stack **stack_a, t_stack **stack_b, int a)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	if (!(*stack_a))
+		f_error(*stack_b);
+	else if ((*stack_a)->next->next != NULL)
+	{
+		first = (*stack_a);
+		while ((*stack_a)->next->next != NULL)
+			(*stack_a) = (*stack_a)->next;
+		last = (*stack_a)->next;
+		(*stack_a)->next = NULL;
+		last->next = first;
+		(*stack_a) = last;
+	}
+	else if ((*stack_a)->next != NULL)
+	{
+		last = (*stack_a)->next;
+		(*stack_a)->next = NULL;
+		last->next = (*stack_a);
+		(*stack_a) = last;
+	}
+	if (a == 1)
+		write(1, "rra\n", 4);
 }

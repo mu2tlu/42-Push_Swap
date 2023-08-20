@@ -44,6 +44,9 @@ void	pb(t_stack **stack_b, t_stack **stack_a);
 void	ra(t_stack **stack_a, t_stack **stack_b, int a);
 void	rb(t_stack **stack_a, t_stack **stack_b, int b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a, t_stack **stack_b, int a);
+void	rrb(t_stack **stack_a, t_stack **stack_b, int b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 void	printnode(t_stack *node);//dikakt
 #endif
