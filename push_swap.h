@@ -22,8 +22,8 @@ typedef struct s_stack
 }					t_stack;
 
 int		push_arg(t_stack **node, int num);
-int		push(t_stack **node, int num);
-int		pop(t_stack **node, t_stack **node2);
+int		push(t_stack **stack, int num);
+int		pop(t_stack **stack_x, t_stack **stack_y);
 void	ff_error(t_stack	*stack_a, t_stack	*stack_b);
 void	f_error(t_stack	*stack);
 void	diff_char_check(char	**av);

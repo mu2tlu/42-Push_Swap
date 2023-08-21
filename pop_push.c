@@ -13,41 +13,41 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	pop(t_stack **node_x, t_stack **node_y)
+int	pop(t_stack **stack_x, t_stack **stack_y)
 {
 	t_stack	*temp;
 	int		res;
 
 	res = 0;
-	if (!*node_x)
-		ff_error(*node_x, *node_y);
-	else if ((*node_x)->next)
+	if (!*stack_x)
+		ff_error(*stack_x, *stack_y);
+	else if ((*stack_x)->next)
 	{
-		temp = (*node_x);
+		temp = (*stack_x);
 		res = temp->data;
-		(*node_x) = (*node_x)->next;
+		(*stack_x) = (*stack_x)->next;
 		free(temp);
 	}
 	else
 	{
-		res = (*node_x)->data;
-		(*node_x) = NULL;
-		free(*node_x);
+		res = (*stack_x)->data;
+		(*stack_x) = NULL;
+		free(*stack_x);
 	}
 	return (res);
 }
 
-int	push(t_stack **node, int num)
+int	push(t_stack **stack, int num)
 {
 	t_stack	*temp;
 
-	if (!*node)
+	if (!*stack)
 	{
-		*node = (t_stack *)malloc(sizeof(t_stack));
-		if (!*node)
+		*stack = (t_stack *)malloc(sizeof(t_stack));
+		if (!*stack)
 			return (-1);
-		(*node)->data = num;
-		(*node)->next = NULL;
+		(*stack)->data = num;
+		(*stack)->next = NULL;
 	}
 	else
 	{
@@ -55,8 +55,8 @@ int	push(t_stack **node, int num)
 		if (!temp)
 			return (-1);
 		temp->data = num; 
-		temp->next = (*node);
-		(*node) = temp;
+		temp->next = (*stack);
+		(*stack) = temp;
 	}
 	return (1);
 }
