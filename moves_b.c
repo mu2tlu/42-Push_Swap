@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/21 16:24:21 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/21 19:36:37 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	if (!*stack_a)
 		return ;
-	if (push(stack_b, pop(stack_a, stack_b)) == -1)
+	if (push(stack_b, pop(stack_a)) == -1)
 		ff_error(*stack_a, *stack_b);
 	write(1, "pb\n", 3);
 }

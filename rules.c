@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/21 16:24:43 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/21 19:44:27 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
 {
 	(void)stack_b;
-
-
-	sa(stack_a, 1);
+	//sa(stack_a, 1);
 	pb(stack_a, stack_b);
 	printnode(*stack_a);
 	write(1, "\n", 1);
 	printnode(*stack_b);
-
 }

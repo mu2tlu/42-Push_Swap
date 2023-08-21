@@ -13,26 +13,24 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	pop(t_stack **stack_x, t_stack **stack_y)
+int	pop(t_stack **stack)
 {
 	t_stack	*temp;
 	int		res;
 
 	res = 0;
-	if (!*stack_x)
-		ff_error(*stack_x, *stack_y);
-	else if ((*stack_x)->next)
+	if ((*stack)->next)
 	{
-		temp = (*stack_x);
+		temp = (*stack);
 		res = temp->data;
-		(*stack_x) = (*stack_x)->next;
+		(*stack) = (*stack)->next;
 		free(temp);
 	}
 	else
 	{
-		res = (*stack_x)->data;
-		(*stack_x) = NULL;
-		free(*stack_x);
+		res = (*stack)->data;
+		(*stack) = NULL;
+		free(*stack);
 	}
 	return (res);
 }
