@@ -31,6 +31,7 @@ int	pop(t_stack **node_x, t_stack **node_y)
 	else
 	{
 		res = (*node_x)->data;
+		(*node_x) = NULL;
 		free(*node_x);
 	}
 	return (res);
