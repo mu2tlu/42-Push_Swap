@@ -6,12 +6,19 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/21 15:32:21 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/21 16:24:21 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
+
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	ra(stack_a, 0);
+	rb(stack_b, 0);
+	write(1, "rr\n", 3);
+}
 
 void	sb(t_stack **stack_b, int b)
 {
