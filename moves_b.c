@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 20:50:26 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:05:07 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sb(t_stack **stack_b, int b)
 	}
 }
 
-void	pb(t_stack **stack_b, t_stack **stack_a)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	if (!*stack_a)
 		return ;
@@ -39,13 +39,13 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 	write(1, "pa\n", 3);
 }
 
-void	rb(t_stack **stack_a, t_stack **stack_b, int b)
+void	rb(t_stack **stack_b, int b)
 {
 	t_stack	*first;
 	t_stack	*first2;
 
-	if (!(*stack_b))
-		f_error(*stack_a);
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
 	else
 	{
 		first = (*stack_b);
@@ -60,13 +60,13 @@ void	rb(t_stack **stack_a, t_stack **stack_b, int b)
 	}
 }
 
-void	rrb(t_stack **stack_a, t_stack **stack_b, int b)
+void	rrb(t_stack **stack_b, int b)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	if (!(*stack_b))
-		f_error(*stack_a);
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
 	else if ((*stack_b)->next->next != NULL)
 	{
 		first = (*stack_b);

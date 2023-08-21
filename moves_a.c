@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:29:10 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 20:41:50 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/21 13:55:41 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	write(1, "pa\n", 3);
 }
 
-void	ra(t_stack **stack_a, t_stack **stack_b, int a)
+void	ra(t_stack **stack_a, int a)
 {
 	t_stack	*first;
 	t_stack	*first2;
 
-	if (!(*stack_a))
-		f_error(*stack_b);
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
 	else
 	{
 		first = (*stack_a);
@@ -60,13 +60,13 @@ void	ra(t_stack **stack_a, t_stack **stack_b, int a)
 	}
 }
 
-void	rra(t_stack **stack_a, t_stack **stack_b, int a)
+void	rra(t_stack **stack_a, int a)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	if (!(*stack_a))
-		f_error(*stack_b);
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
 	else if ((*stack_a)->next->next != NULL)
 	{
 		first = (*stack_a);
