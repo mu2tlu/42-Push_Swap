@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/25 14:37:59 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/25 14:44:02 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ int	data_short(t_stack **stack)
 
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
 {
-	stack_len(*stack_a);
+	int	i;
+
+	i = stack_len(*stack_a);
+	if (i == 2)
+		if (data_check(*stack_a, (*stack_a)->next))
+			sa(stack_a, 1);
 	printnode(*stack_b);
 	printnode(*stack_a);
 }
