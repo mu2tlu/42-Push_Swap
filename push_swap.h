@@ -48,7 +48,7 @@ void	rra(t_stack **stack_a, int a);
 void	rrb(t_stack **stack_b, int b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 int		d_check(t_stack *x, t_stack *y);
-int		d_short(t_stack *stack);
+int		d_ascending(t_stack *stack);
 int		s_len(t_stack *stack);
 
 void	printnode(t_stack *node);//dikakt
