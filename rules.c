@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/25 14:00:52 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/25 14:05:07 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	data_check(t_stack *x, t_stack *y)
 
 int	data_short(t_stack **stack)
 {
-	if (!(*stack) || (*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 		return (0);
 	while ((*stack)->next)
 	{
