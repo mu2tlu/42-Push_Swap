@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/25 15:37:30 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:51:43 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	d_ascending(t_stack *stack)
 		return (0);
 	while (stack->next)
 	{
-		if (d_check(stack, stack->next))
+		if (!d_check(stack, stack->next))
 			stack = stack->next;
 		else
 			return (0);
@@ -61,11 +61,17 @@ void	the_rules(t_stack **stack_a, t_stack **stack_b)
 	}
 	else if (i == 3)
 	{
-		if (d_ascending(*stack_a) == 0)
+		if (!d_ascending(*stack_a))
+		{
 			if (d_check(*stack_a, (*stack_a)->next))
 			{
 				write(1, "a", 1);
 			}
+			else
+			{
+				write(1, "1", 1);
+			}
+		}
 	}
 	printnode(*stack_a);
 	printnode(*stack_b);
