@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/25 19:14:47 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/26 11:56:42 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,28 +51,26 @@ int	d_ascending(t_stack *stack)
 
 void	argv_3(t_stack **stack_a)
 {
-	if (d_check(*stack_a, (*stack_a)->next)
+	if (!d_check(*stack_a, (*stack_a)->next) 
+		&& !d_check(*stack_a, (*stack_a)->next->next))
+	{
+		rra(stack_a, 1);
+		if (d_check(*stack_a, (*stack_a)->next))
+			sa(stack_a, 1);
+	}
+	else if (d_check(*stack_a, (*stack_a)->next)
+		&& !d_check(*stack_a, (*stack_a)->next->next))
+		sa(stack_a, 1);
+	else if (!d_check(*stack_a, (*stack_a)->next) 
+		&& d_check(*stack_a, (*stack_a)->next->next))
+		rra(stack_a, 1);
+	else if (d_check(*stack_a, (*stack_a)->next)
 		&& d_check(*stack_a, (*stack_a)->next->next))
 	{
 		ra(stack_a, 1);
 		if (d_check(*stack_a, (*stack_a)->next))
 			sa(stack_a, 1);
 	}
-	else if (!d_check(*stack_a, (*stack_a)->next) 
-		&& !d_check(*stack_a, (*stack_a)->next->next))
-	{
-		rra(stack_a, 1);
-		if (d_check(*stack_a, (*stack_a)->next))
-			sa(stack_a, 1);
-	}
-	else if (!d_check(*stack_a, (*stack_a)->next) 
-		&& d_check(*stack_a, (*stack_a)->next->next))
-	{
-		rra(stack_a, 1);
-	}
-	else if (d_check(*stack_a, (*stack_a)->next)
-		&& !d_check(*stack_a, (*stack_a)->next->next))
-		sa(stack_a, 1);
 }
 
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
