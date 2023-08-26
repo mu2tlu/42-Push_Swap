@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/26 11:56:42 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/26 14:34:19 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void	argv_3(t_stack **stack_a)
 	}
 }
 
+// void	argv_8(t_stack **stack_a, t_stack **stack_b)
+// {
+	
+// }
+
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
@@ -82,6 +87,10 @@ void	the_rules(t_stack **stack_a, t_stack **stack_b)
 		sa(stack_a, 1);
 	else if (i == 3)
 		argv_3(stack_a);
+	// else if(i > 3)
+	// {
+	// 	argv_s(stack_a, stack_b);
+	// }
 	printnode(*stack_a);
 	printnode(*stack_b);
 }

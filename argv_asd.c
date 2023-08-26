@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/20 01:00:27 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/26 14:32:23 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,20 @@ long	ft_atoll(char *str)
 	return (result * sign);
 }
 
-void	argv_single(char **av, t_stack **stack_a)
+void	free_tab(char **tab)
+{
+	int	i; 
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	argv_single(char **av, t_stack **stack_a, t_stack **stack_b)
 {
 	char	**tab;
 	int		error_i;
@@ -63,22 +76,10 @@ void	argv_single(char **av, t_stack **stack_a)
 		i++;
 	}
 	free_tab(tab);
+	the_rules(stack_a, stack_b);
 }
 
-void	free_tab(char **tab)
-{
-	int	i; 
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-void	argv_double(char **av, t_stack **stack_a)
+void	argv_double(char **av, t_stack **stack_a, t_stack **stack_b)
 {
 	int		error_i;
 	int		check;
@@ -95,4 +96,5 @@ void	argv_double(char **av, t_stack **stack_a)
 			f_error(*stack_a);
 		i++;
 	}
+	the_rules(stack_a, stack_b);
 }
