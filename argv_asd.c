@@ -6,40 +6,11 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/26 14:32:23 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/27 17:44:44 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	ft_atoll(char *str)
-{
-	long	i;
-	long	sign;
-	long	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	if (!str)
-		return (0);
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
-	}
-	return (result * sign);
-}
 
 void	free_tab(char **tab)
 {
@@ -54,47 +25,85 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void	argv_single(char **av, t_stack **stack_a, t_stack **stack_b)
+int	ft_tablen(char **tab)
+{
+	int	i; 
+
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
+}
+
+int	calculate_size(char **av)
+{
+	int	x;
+	int	y;
+	int	k;
+
+	y = 0;
+	k = 0;
+	while (av[y])
+	{
+		x = 0;
+		while (av[y][x])
+		{
+			if (av[y][x] >= '0' && av[y][x] <= '9')
+				k++;
+			while (!(av[y][x] >= '0' && av[y][x] <= '9') && av[y][x])
+				x++;
+			x++;
+		}
+		y++;
+	}
+	return ((y + k + 2) * sizeof(char *));
+}
+
+char	**new_av(char **av)
+{
+	char	**tab1;
+	char	**tab2;
+	int		i;
+	int		j;
+	int		k;
+
+	i = -1;
+	k = 0;
+	tab1 = (char **) malloc((calculate_size(av)));
+	while (++i, av[i])
+	{
+		tab2 = ft_split(av[i], ' ');
+		if (!tab2)
+			return (NULL);
+		j = -1;
+		while (++j, tab2[j])
+		{
+			tab1[k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
+			ft_strlcpy(tab1[k], tab2[j], ft_strlen(tab2[j]) + 1);
+			++k;
+		}
+	}
+	free_tab(tab2);
+	return (tab1);
+}
+
+void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 {
 	char	**tab;
 	int		error_i;
-	int		check;
 	int		i;
 
 	i = 0;
-	tab = ft_split(av[0], ' ');
+	tab = new_av(av);
 	if (!tab)
 		return ;
-	if (tab[i + 1] == NULL)
-		exit(-1);
 	while (tab[i])
 	{
-		check = sort_check(tab, i, tab[i]);
-		error_i = push_arg(stack_a, check);
+		error_i = push_arg(stack_a, sort_check(tab, i, tab[i]));
 		if (error_i == -1)
 			f_error(*stack_a);
 		i++;
 	}
 	free_tab(tab);
-	the_rules(stack_a, stack_b);
-}
-
-void	argv_double(char **av, t_stack **stack_a, t_stack **stack_b)
-{
-	int		error_i;
-	int		check;
-	int		i;
-
-	i = 0;
-	if (av[i + 1] == NULL)
-		exit(-1);
-	while (av[i])
-	{
-		check = sort_check(av, i, av[i]);
-		error_i = push_arg(stack_a, check);
-		if (error_i == -1)
-			f_error(*stack_a);
-		i++;
-	}
 	the_rules(stack_a, stack_b);
 }

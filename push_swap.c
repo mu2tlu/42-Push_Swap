@@ -20,10 +20,8 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	diff_char_check(av + 1);
-	if (ac == 2)
-		argv_single((av + 1), &stack_a, &stack_b);
-	else if (ac > 2)
-		argv_double((av + 1), &stack_a, &stack_b);
+	if (ac > 1)
+		argv((av + 1), &stack_a, &stack_b);
 	//ff_error(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/26 14:53:46 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/27 17:36:41 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,33 @@ void	f_exit(void)
 	exit(-1);
 }
 
-char	*spc_check(char *str)
+long	ft_atoll(char *str)
 {
-	int	i;
+	long	i;
+	long	sign;
+	long	result;
 
 	i = 0;
-	while (str[i])
+	sign = 1;
+	result = 0;
+	if (!str)
+		return (0);
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			i++;
-		else if (str[i] == '+' || str[i] == '-')
-			i++;
-		else
-			f_exit(); 
+		sign = -1;
+		i++;
 	}
-	return (str);
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result * sign);
 }
 
 int	sort_check(char **av, int len, char *tab)
@@ -45,7 +57,7 @@ int	sort_check(char **av, int len, char *tab)
 
 	i = 0;
 	num2 = 0;
-	num = ft_atoll(spc_check(tab));
+	num = ft_atoll(tab);
 	if (!(num >= -2147483648 && num <= 2147483647))
 		f_exit();
 	if (av[len + 1])
