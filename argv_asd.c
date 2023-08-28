@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/27 17:44:44 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/28 14:21:10 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ void	free_tab(char **tab)
 		i++;
 	}
 	free(tab);
-}
-
-int	ft_tablen(char **tab)
-{
-	int	i; 
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
 }
 
 int	calculate_size(char **av)
@@ -68,7 +58,7 @@ char	**new_av(char **av)
 	int		k;
 
 	i = -1;
-	k = 0;
+	k = -1;
 	tab1 = (char **) malloc((calculate_size(av)));
 	while (++i, av[i])
 	{
@@ -78,12 +68,13 @@ char	**new_av(char **av)
 		j = -1;
 		while (++j, tab2[j])
 		{
-			tab1[k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
+			tab1[++k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
+			if (!tab1[k])
+				return (NULL);
 			ft_strlcpy(tab1[k], tab2[j], ft_strlen(tab2[j]) + 1);
-			++k;
 		}
+		free_tab(tab2);
 	}
-	free_tab(tab2);
 	return (tab1);
 }
 
