@@ -51,6 +51,7 @@ int		d_check(t_stack *x, t_stack *y);
 int		d_ascending(t_stack *stack);
 int		s_len(t_stack *stack);
 void	argv_2_3(t_stack **stack_a, int i);
+void	argv_stack(t_stack **stack_a, t_stack **stack_b);
 
 void	printnode(t_stack *node);//dikakt
 #endif
