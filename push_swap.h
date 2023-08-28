@@ -27,7 +27,6 @@ void	space_or_empty_check(char	**av);
 char	**new_av(char **av);
 void	free_tab(char **tab);
 int		calculate_size(char **av);
-int		ft_tablen(char **tab);
 int		push_arg(t_stack **node, int num);
 int		sort_check(char **av, int len, char *tab);
 long	ft_atoll(char *str);
@@ -51,6 +50,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 int		d_check(t_stack *x, t_stack *y);
 int		d_ascending(t_stack *stack);
 int		s_len(t_stack *stack);
+void	argv_2_3(t_stack **stack_a, int i);
 
 void	printnode(t_stack *node);//dikakt
 #endif
