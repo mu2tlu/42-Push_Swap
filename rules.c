@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/28 15:57:39 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/28 16:00:28 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	argv_2_3(t_stack **stack_a, int i)
 	}
 }
 
-void	argv_stack(t_stack **stack_a, t_stack **stack_b)
+void	argv_stack(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	while (stack_a)
 	{
@@ -46,7 +46,7 @@ void	argv_stack(t_stack **stack_a, t_stack **stack_b)
 
 
 
-		if (d_ascending(stack_a))
+		if (d_ascending(stack_a) && i == s_len(stack_a))
 			break ;
 	}
 }
@@ -59,7 +59,7 @@ void	the_rules(t_stack **stack_a, t_stack **stack_b)
 	if (i < 4)
 		argv_2_3(stack_a, i);
 	else
-		argv_stack(stack_a, stack_b);
+		argv_stack(stack_a, stack_b, i);
 
 	printnode(*stack_a);
 	printnode(*stack_b);
