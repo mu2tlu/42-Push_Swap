@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/28 14:21:10 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/28 14:28:05 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	int		i;
 
 	i = 0;
+	diff_char_check(av);
 	tab = new_av(av);
 	if (!tab)
 		return ;
