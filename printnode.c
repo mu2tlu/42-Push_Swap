@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
 void	printnode(t_stack *node)
 {

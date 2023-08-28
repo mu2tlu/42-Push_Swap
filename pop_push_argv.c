@@ -87,4 +87,3 @@ int	push(t_stack **stack, int num)
 	}
 	return (1);
 }
-
