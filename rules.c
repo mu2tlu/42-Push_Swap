@@ -6,35 +6,35 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/28 16:23:51 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/29 20:46:26 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	argv_2_3(t_stack **stack_a, int i)
+void	argv_2_3(t_stack **s, int i)
 {
-	if (i == 2 && d_check(*stack_a, (*stack_a)->next))
-		sa(stack_a, 1);
-	if (i == 3 && !d_check(*stack_a, (*stack_a)->next) 
-		&& !d_check(*stack_a, (*stack_a)->next->next))
+	if (i == 2 && d_check((*s)->data, (*s)->next->data))
+		sa(s, 1);
+	if (i == 3 && !d_check((*s)->data, (*s)->next->data) 
+		&& !d_check((*s)->data, (*s)->next->next->data))
 	{
-		rra(stack_a, 1);
-		if (d_check(*stack_a, (*stack_a)->next))
-			sa(stack_a, 1);
+		rra(s, 1);
+		if (d_check((*s)->data, (*s)->next->data))
+			sa(s, 1);
 	}
-	else if (i == 3 && d_check(*stack_a, (*stack_a)->next)
-		&& !d_check(*stack_a, (*stack_a)->next->next))
-		sa(stack_a, 1);
-	else if (i == 3 && !d_check(*stack_a, (*stack_a)->next) 
-		&& d_check(*stack_a, (*stack_a)->next->next))
-		rra(stack_a, 1);
-	else if (i == 3 && d_check(*stack_a, (*stack_a)->next)
-		&& d_check(*stack_a, (*stack_a)->next->next))
+	else if (i == 3 && d_check((*s)->data, (*s)->next->data)
+		&& !d_check((*s)->data, (*s)->next->next->data))
+		sa(s, 1);
+	else if (i == 3 && !d_check((*s)->data, (*s)->next->data) 
+		&& d_check((*s)->data, (*s)->next->next->data))
+		rra(s, 1);
+	else if (i == 3 && d_check((*s)->data, (*s)->next->data)
+		&& d_check((*s)->data, (*s)->next->next->data))
 	{
-		ra(stack_a, 1);
-		if (d_check(*stack_a, (*stack_a)->next))
-			sa(stack_a, 1);
+		ra(s, 1);
+		if (d_check((*s)->data, (*s)->next->data))
+			sa(s, 1);
 	}
 }
 
