@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/28 16:15:09 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/29 17:32:19 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	d_check(t_stack *x, t_stack *y)
 {
-	if (!x && !y)
+	if (!x || !y)
 		return (0);
 	return (x->data > y->data);
 }
