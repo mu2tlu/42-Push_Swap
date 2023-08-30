@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/30 23:42:08 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/30 23:44:00 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,12 @@ void	argv_2_3(t_stack **stack, int max)
 	}
 }
 
-
 void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max)
 {
 	int	pivot;
 
 	pivot = sort_int_tab(*stack_a, max);
 	while (stack_a)
-
 	{
 		if (d_check((*stack_a)->data, pivot))
 			ra(stack_a, 1);
@@ -67,4 +65,3 @@ void	the_rules(t_stack **stack_a, t_stack **stack_b)
 	else
 		argv_stack(stack_a, stack_b, max);
 }
-
