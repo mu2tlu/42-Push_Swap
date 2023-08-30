@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/30 23:44:00 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/31 02:25:44 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,40 @@ void	argv_2_3(t_stack **stack, int max)
 	}
 }
 
-void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max)
+int	sort_int_tab(t_stack *stack, int max)
 {
-	int	pivot;
+	int	temp;
+	int	*new_arr;
+	int	i;
+	int	j;
 
-	pivot = sort_int_tab(*stack_a, max);
-	while (stack_a)
+	i = -1;
+	j = -1;
+	new_arr = new_stack(stack, max);
+	while (++i < max)
 	{
-		if (d_check((*stack_a)->data, pivot))
-			ra(stack_a, 1);
-		else
+		j = i;
+		while (++j < max)
 		{
-			sa(stack_a, 1);
-			pb(stack_a, stack_b);
+			if (new_arr[i] > new_arr[j])
+			{
+				temp = new_arr[i];
+				new_arr[i] = new_arr[j];
+				new_arr[j] = temp;
+			}
 		}
 	}
+	temp = pivot(new_arr, max);
+	free(new_arr);
+	return (temp);
+}
+
+void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max)
+{
+	printnode(*stack_a);
+	printf("|||%d|||\n", sort_int_tab(*stack_a, max));
+	printnode(*stack_a);
+	(void)stack_b;
 }
 
 void	the_rules(t_stack **stack_a, t_stack **stack_b)

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/30 23:41:20 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/08/31 02:21:57 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	d_ascending(t_stack *stack)
 	return (1);
 }
 
+int	d_check(int x, int y)
+{
+	return (x > y);
+}
+
 int	s_len(t_stack *stack)
 {
 	int	i;
@@ -41,45 +46,33 @@ int	s_len(t_stack *stack)
 	return (i);
 }
 
-int	pivot(t_stack *stack, int max)
+int	pivot(int *new_arr, int max)
 {
+	int	size;
 	int	i;
 
-	i = s_len(stack);
-	while (stack->next && i > (max / 2 + max % 2))
+	i = 0;
+	size = max;
+	while (new_arr[i] && size > (max / 2 + max % 2))
 	{
+		i++;
+		size--;
+	}
+	return (new_arr[i]);
+}
+
+int	*new_stack(t_stack *stack, int max)
+{
+	int	i;
+	int	*new_arr;
+
+	i = 0;
+	new_arr = (int *)malloc(sizeof(int) * max);
+	while (stack)
+	{
+		new_arr[i] = stack->data;
+		i++;
 		stack = stack->next;
-		i--;
 	}
-	return (stack->data);
-}
-
-int	d_check(int x, int y)
-{
-	return (x > y);
-}
-
-int	sort_int_tab(t_stack *stack, int max)
-{
-	int		temp;
-	t_stack	*iter;
-	t_stack	*iter2;
-
-	iter = stack;
-	while (iter != NULL) 
-	{
-		iter2 = iter->next; 
-		while (iter2 != NULL) 
-		{
-			if (d_check(iter->data, iter2->data))
-			{
-				temp = iter->data;
-				iter->data = iter2->data;
-				iter2->data = temp;
-			}
-			iter2 = iter2->next;
-		}
-		iter = iter->next;
-	}
-	return (pivot(stack, max));
+	return (new_arr);
 }
