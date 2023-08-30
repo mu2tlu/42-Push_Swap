@@ -50,7 +50,10 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 int		d_check(int x, int y);
 int		d_ascending(t_stack *stack);
 int		s_len(t_stack *stack);
+int		sort_int_tab(t_stack *stack, int max);
+int		pivot(t_stack *stack, int max);
 void	argv_2_3(t_stack **stack, int i);
+void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max);
 
 void	printnode(t_stack *node);//dikakt
 #endif

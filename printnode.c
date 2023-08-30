@@ -16,7 +16,7 @@ void	printnode(t_stack *node)
 {
 	while (node != NULL)
 	{
-		printf("%d ", node->data);	
+		printf("%d ", node->data);
 		node = node->next;
 	}
 	printf("\n");
