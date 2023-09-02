@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/29 21:27:03 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/02 18:17:14 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	{
 		error_i = push_arg(stack_a, sort_check(tab, i, tab[i]));
 		if (error_i == -1)
-			f_error(*stack_a);
+			f_error(&*stack_a);
 		i++;
 	}
 	free_tab(tab);

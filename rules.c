@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/31 02:32:25 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/02 17:56:24 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	argv_2_3(t_stack **stack, int max)
 	}
 }
 
-int	sort_int_tab(t_stack *stack, int max)
+int	sort_int_tab(t_stack **stack_a, t_stack **stack_b, char flag, int len)
 {
 	int	temp;
 	int	*new_arr;
@@ -47,11 +47,11 @@ int	sort_int_tab(t_stack *stack, int max)
 
 	i = -1;
 	j = -1;
-	new_arr = new_stack(stack, max);
-	while (++i < max)
+	new_arr = new_stack(stack_a, stack_b, flag, len);
+	while (++i < len)
 	{
 		j = i;
-		while (++j < max)
+		while (++j < len)
 		{
 			if (new_arr[i] > new_arr[j])
 			{
@@ -61,26 +61,26 @@ int	sort_int_tab(t_stack *stack, int max)
 			}
 		}
 	}
-	temp = pivot(new_arr, max);
+	temp = pivot(new_arr, len);
 	free(new_arr);
 	return (temp);
 }
 
-void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max)
+void	argv_stack(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	printnode(*stack_a);
-	printf("|||%d|||\n", sort_int_tab(*stack_a, max));
+	printf("|||%d|||\n", sort_int_tab(stack_a, stack_b, 'a', len));
 	printnode(*stack_a);
 	(void)stack_b;
 }
 
 void	the_rules(t_stack **stack_a, t_stack **stack_b)
 {
-	int	max;
+	int	len;
 
-	max = s_len(*stack_a);
-	if (max < 4)
-		argv_2_3(stack_a, max);
+	len = s_len(*stack_a);
+	if (len < 4)
+		argv_2_3(stack_a, len);
 	else
-		argv_stack(stack_a, stack_b, max);
+		argv_stack(stack_a, stack_b, len);
 }

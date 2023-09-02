@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 17:31:56 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/31 02:21:57 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/02 18:19:06 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,26 @@ int	pivot(int *new_arr, int max)
 	return (new_arr[i]);
 }
 
-int	*new_stack(t_stack *stack, int max)
+int	*new_stack(t_stack **stack_a, t_stack **stack_b, char flag, int len)
 {
-	int	i;
-	int	*new_arr;
+	int		i;
+	int		*new_arr;
+	t_stack	*iter;
 
 	i = 0;
-	new_arr = (int *)malloc(sizeof(int) * max);
-	while (stack)
+	iter = NULL;
+	if (flag == 'a')
+		iter = (*stack_a);
+	else if (flag == 'b')
+		iter = (*stack_b);
+	new_arr = (int *)malloc(sizeof(int) * len);
+	if (!new_arr)
+		ff_error(&*stack_a, &*stack_b);
+	while (iter != NULL)
 	{
-		new_arr[i] = stack->data;
+		new_arr[i] = iter->data;
 		i++;
-		stack = stack->next;
+		iter = iter->next;
 	}
 	return (new_arr);
 }

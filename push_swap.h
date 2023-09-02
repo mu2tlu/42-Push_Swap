@@ -30,8 +30,8 @@ int		calculate_size(char **av);
 int		push_arg(t_stack **node, int num);
 int		sort_check(char **av, int len, char *tab);
 long	ft_atoll(char *str);
-void	ff_error(t_stack	*stack_a, t_stack	*stack_b);
-void	f_error(t_stack	*stack);
+void	ff_error(t_stack	**stack_a, t_stack	**stack_b);
+void	f_error(t_stack	**stack);
 void	the_rules(t_stack **stack_a, t_stack **stack_b);
 void	f_exit(void);
 int		pop(t_stack **stack);
@@ -50,11 +50,11 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 int		d_ascending(t_stack *stack);
 int		d_check(int x, int y);
 int		s_len(t_stack *stack);
-int		pivot(int *new_arr, int max);
-int		*new_stack(t_stack *stack, int max);
-int		sort_int_tab(t_stack *stack, int max);
-void	argv_2_3(t_stack **stack, int max);
-void	argv_stack(t_stack **stack_a, t_stack **stack_b, int max);
+int		pivot(int *new_arr, int len);
+int		*new_stack(t_stack **stack_a, t_stack **stack_b, char flag, int len);
+int		sort_int_tab(t_stack **stack_a, t_stack **stack_b, char flag, int len);
+void	argv_2_3(t_stack **stack, int len);
+void	argv_stack(t_stack **stack_a, t_stack **stack_b, int len);
 
 void	printnode(t_stack *node);//dikkat
 #endif
