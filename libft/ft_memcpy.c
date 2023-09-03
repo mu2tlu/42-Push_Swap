@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:44:09 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:44:10 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:16:07 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:16:08 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	i;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (d == s)
-		return (dst);
-	while (n--)
-		*d++ = *s++;
+	if (dst == NULL && src == NULL)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
 	return (dst);
 }

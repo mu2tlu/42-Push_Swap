@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:46:31 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:46:32 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:17:31 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:17:32 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

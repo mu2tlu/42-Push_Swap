@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:40:30 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:40:31 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:14:11 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:14:12 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
 }

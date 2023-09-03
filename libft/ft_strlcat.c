@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:46:18 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:46:19 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:17:15 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:17:16 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	s;
+	size_t	i;
 	size_t	d;
-	size_t	di;
-	size_t	si;
+	size_t	s;
 
-	si = ft_strlen(src);
-	if (!dst && dstsize == 0)
-		return (si);
 	d = ft_strlen(dst);
-	di = d;
-	if (dstsize <= di)
-		return (dstsize + si);
-	s = 0;
-	while (src[s] && d + 1 < dstsize)
+	s = ft_strlen((char *)src);
+	i = 0;
+	if (dstsize <= d)
 	{
-		dst[d] = src[s];
-		s++;
-		d++;
+		return (dstsize + s);
 	}
-	dst[d] = 0;
-	return (di + si);
+	while (src[i] != '\0' && d + i + 1 < dstsize)
+	{
+		dst[d + i] = src[i];
+		i++;
+	}
+	dst[d + i] = '\0';
+	return (d + s);
 }

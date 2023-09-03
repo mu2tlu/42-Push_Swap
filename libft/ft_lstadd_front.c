@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:42:23 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:42:24 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:14:59 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:00 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
+	if (!new)
 		return ;
 	new->next = *lst;
 	*lst = new;

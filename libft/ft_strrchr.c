@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:47:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:47:06 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:18:04 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:18:04 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	while (s[i])
-		i++;
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
 		if (s[i] == (char)c)
-			return ((char *)(s + i));
+			return ((char *)s + i);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

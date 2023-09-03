@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:45:22 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:45:23 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:16:34 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:16:35 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
-	char	c;
 
 	nb = n;
 	if (nb < 0)
 	{
-		write(fd, "-", 1);
-		nb *= -1;
+		ft_putchar_fd('-', fd);
+		nb = (nb * -1);
 	}
-	if (nb >= 10)
+	if (nb < 10)
+		ft_putchar_fd(nb + 48, fd);
+	if (nb > 9)
 	{
 		ft_putnbr_fd(nb / 10, fd);
 		ft_putnbr_fd(nb % 10, fd);
-	}
-	else
-	{
-		c = nb + '0';
-		write(fd, &c, 1);
 	}
 }

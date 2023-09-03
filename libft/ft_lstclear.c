@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:42:34 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:42:35 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:05 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:06 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*temp;
+	t_list	*ptr;
 
-	if (!lst)
+	if (lst == NULL || del == NULL)
 		return ;
-	while (*lst)
+	while (*lst != NULL)
 	{
-		temp = (*lst)->next;
+		ptr = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		(*lst) = temp;
+		*lst = ptr;
 	}
+	*lst = NULL;
 }

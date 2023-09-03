@@ -5,23 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:45:30 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:45:31 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:16:39 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:16:40 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
 	if (!s)
-		return ;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+		write(fd, "(NULL)", 6);
+	else
+		write(fd, s, ft_strlen(s));
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:45:54 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:45:55 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:16:58 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:16:59 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*str;
-	int		i;
+	char	*s2;
+	size_t	len;
 
-	i = 0;
-	while (s1[i] != 0)
-		i++;
-	str = malloc(i + 1);
-	if (str == 0)
-		return (0);
-	i = 0;
-	while (s1[i] != 0)
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+	len = ft_strlen(s1);
+	s2 = (char *)malloc(len + 1);
+	if ((s2) == NULL)
+		return (NULL);
+	ft_memcpy(s2, s1, len + 1);
+	return (s2);
 }

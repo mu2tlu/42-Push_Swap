@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:45:12 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:45:13 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:16:29 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:16:30 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (!(s))
-		return ;
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

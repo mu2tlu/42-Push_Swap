@@ -58,8 +58,8 @@ int	pop(t_stack **stack)
 	else
 	{
 		res = (*stack)->data;
-		(*stack) = NULL;
 		free(*stack);
+		(*stack) = NULL;
 	}
 	return (res);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:46:37 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:46:38 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:17:38 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:17:39 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*str;
 
-	if (!s || !f)
-		return (0);
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!str)
-		return (0);
+	if (!s)
+		return (NULL);
 	i = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
+	if (str == NULL)
+		return (NULL);
 	while (s[i])
 	{
 		str[i] = f(i, s[i]);

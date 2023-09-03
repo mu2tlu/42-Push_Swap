@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:43:01 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:43:02 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:17 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:18 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (f == NULL)
 		return ;
 	while (lst)
 	{
-		(*f)(lst->content);
+		f(lst->content);
 		lst = lst->next;
 	}
 }

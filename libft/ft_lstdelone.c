@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:42:53 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:42:54 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:13 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:14 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	del(lst->content);
 	free(lst);

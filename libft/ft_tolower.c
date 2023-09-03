@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:47:52 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 23:28:52 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:18:21 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:18:22 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
-	return (c);
+	else
+		return (c);
 }

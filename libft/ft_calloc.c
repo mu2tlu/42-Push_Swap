@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:39:42 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:39:43 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:13:57 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:13:58 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*array;
+	void	*ret;
 
-	array = (void *)malloc(count * size);
-	if (array == NULL)
-		return (NULL);
-	ft_bzero(array, (count * size));
-	return (array);
+	ret = malloc(count * size);
+	if (ret)
+		ft_bzero(ret, count * size);
+	return (ret);
 }

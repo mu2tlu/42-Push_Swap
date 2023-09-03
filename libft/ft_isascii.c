@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:40:40 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 23:28:43 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:14:18 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:14:19 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (0 <= c && c <= 127);
 }

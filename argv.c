@@ -6,12 +6,41 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/02 18:17:14 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/03 21:24:35 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+
+long	ft_atoll(char *str)
+{
+	long	i;
+	long	sign;
+	long	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (!str)
+		return (0);
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}
 
 void	free_tab(char **tab)
 {
@@ -63,6 +92,8 @@ char	**new_av(char **av)
 	i = -1;
 	k = -1;
 	tab1 = (char **) malloc((calculate_size(av)));
+	if (!tab1)
+		return (NULL);
 	while (++i, av[i])
 	{
 		tab2 = ft_split(av[i], ' ');
@@ -72,8 +103,6 @@ char	**new_av(char **av)
 		while (++j, tab2[j])
 		{
 			tab1[++k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
-			if (!tab1[k])
-				return (NULL);
 			ft_strlcpy(tab1[k], tab2[j], ft_strlen(tab2[j]) + 1);
 		}
 		free_tab(tab2);
@@ -92,6 +121,11 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	tab = new_av(av);
 	if (!tab)
 		return ;
+	if (the_numbers_ordered(tab) == 1)
+	{
+		free_tab(tab);
+		exit(-1);
+	}
 	while (tab[i])
 	{
 		error_i = push_arg(stack_a, sort_check(tab, i, tab[i]));
@@ -100,5 +134,5 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 		i++;
 	}
 	free_tab(tab);
-	the_rules(stack_a, stack_b);
+	ft_sort(stack_a, stack_b, ft_stacksize(*stack_a));
 }

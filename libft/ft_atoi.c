@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:39:17 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:39:21 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:13:28 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:13:29 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int					i;
-	int					sign;
-	unsigned long int	result;
+	int	sign;
+	int	result;
 
-	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		sign = -1;
-		i++;
+		sign *= -1;
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
+	else if (*str == '+')
+		str++;
+	if (*str == '-' || *str == '+')
+		return (0);
+	while (ft_isdigit(*str) == 1)
 	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
+		result = (result * 10) + (*str - '0');
+		str++;
 	}
 	return (result * sign);
 }

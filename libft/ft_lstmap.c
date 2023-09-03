@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:43:26 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:43:27 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:37 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:38 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*str;
-	t_list	*tmp;
+	t_list	*new;
+	t_list	*begin;
 	void	*content;
 
-	if (!lst || !f)
+	if (lst == NULL || f == NULL)
 		return (NULL);
-	str = NULL;
+	begin = NULL;
 	while (lst)
 	{
-		content = f(lst->content);
-		if (!content)
-			ft_lstclear(&str, del);
-		if (!content)
-			return (NULL);
-		tmp = ft_lstnew(content);
-		if (!tmp)
+		content = (*f)(lst->content);
+		new = ft_lstnew(content);
+		if (!new)
 		{
-			free(content);
-			ft_lstclear(&str, del);
+			(*del)(content);
+			ft_lstclear(&begin, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&str, tmp);
+		ft_lstadd_back(&begin, new);
 		lst = lst->next;
 	}
-	return (str);
+	return (begin);
 }

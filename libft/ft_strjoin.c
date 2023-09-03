@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:46:11 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:46:12 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:17:10 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:17:11 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,26 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new;
-	size_t	first;
-	size_t	total;
+	char	*result;
+	int		i;
+	int		j;
+	size_t	total_len;
 
-	first = ft_strlen(s1) + 1;
-	total = ft_strlen(s2) + first;
-	new = (char *)malloc(total * sizeof(char));
-	if (!new)
+	if (!s1 || !s2)
 		return (NULL);
-	ft_strlcpy(new, s1, first);
-	ft_strlcat(new, s2, total);
-	return (new);
+	i = 0;
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	result = (char *)malloc((total_len * sizeof(char)) + 1);
+	if (result == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		result[i] = ((unsigned char *)s1)[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+		result[i++] = ((unsigned char *)s2)[j++];
+	result[i] = '\0';
+	return (result);
 }

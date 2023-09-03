@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:43:34 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:43:35 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:43 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:44 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == NULL)
-		return (NULL);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (0);
 	new->content = content;
 	new->next = NULL;
 	return (new);

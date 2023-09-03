@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:40:59 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:41:00 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:14:26 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:14:27 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	return ('0' <= c && c <= '9');
 }

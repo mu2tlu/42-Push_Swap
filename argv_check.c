@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/08/28 16:17:23 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/03 21:23:43 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,52 +19,39 @@ void	f_exit(void)
 	exit(-1);
 }
 
-long	ft_atoll(char *str)
+int	the_numbers_ordered(char **av)
 {
-	long	i;
-	long	sign;
-	long	result;
+	static int	flag;
+	long		num;
+	int			i;
 
 	i = 0;
-	sign = 1;
-	result = 0;
-	if (!str)
-		return (0);
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	while (av[i])
 	{
-		sign = -1;
+		num = ft_atoll(av[i]);
+		if (!(num >= -2147483648 && num <= 2147483647))
+		{
+			free_tab(av);
+			f_exit();
+		}
+		if (flag == 0)
+		{
+			if (i >= 1 && num > ft_atoi(av[i - 1]))
+				flag = 1;
+		}
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
-	}
-	return (result * sign);
+	return (flag);
 }
 
 int	sort_check(char **av, int len, char *tab)
 {
-	static int	flag;
-	int			i_check;
-	int			i;
-	long		num;
-	int			num2;
+	int		i_check;
+	int		i;
+	long	num;
 
 	i = 0;
-	num2 = 0;
-	num = ft_atoll(tab);
-	if (!(num >= -2147483648 && num <= 2147483647))
-		f_exit();
-	if (av[len + 1])
-		num2 = ft_atoi(av[len + 1]);
-	if (av[len + 1] && num2 < num)
-		flag = 1;
+	num = ft_atoi(tab);
 	while (i < len)
 	{
 		i_check = ft_atoi(av[i]);
@@ -72,8 +59,6 @@ int	sort_check(char **av, int len, char *tab)
 			f_exit();
 		i++;
 	}
-	if (flag != 1 && av[len + 1] == NULL)
-		exit(-1);
 	return (num);
 }
 

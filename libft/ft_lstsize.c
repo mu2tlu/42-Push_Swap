@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:43:42 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:43:43 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:15:49 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:15:50 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	i = 0;
-	while (lst)
+	i = 1;
+	if (!lst)
+		return (0);
+	while (lst->next)
 	{
 		lst = lst->next;
-		++i;
+		i++;
 	}
 	return (i);
 }

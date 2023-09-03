@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 17:42:04 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/07/31 17:42:07 by mumutlu          ###   ########.fr       */
+/*   Created: 2023/09/03 16:14:45 by mumutlu           #+#    #+#             */
+/*   Updated: 2023/09/03 16:14:46 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(int num)
+static	int	ft_numlen(int num)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ static int	ft_numlen(int num)
 char	*ft_itoa(int n)
 {
 	int		len;
-	char	*set;
+	char	*ptr;
 	long	nbr;
 
 	nbr = n;
@@ -40,18 +40,18 @@ char	*ft_itoa(int n)
 		len++;
 		nbr = -nbr;
 	}
-	set = malloc(sizeof(char) * len + 1);
-	if (!set)
+	ptr = (char *)malloc(sizeof(char) * len + 1);
+	if (!ptr)
 		return (NULL);
-	set[len] = '\0';
+	ptr[len] = '\0';
 	while (nbr > 0)
 	{
-		set[--len] = nbr % 10 + 48;
+		ptr[--len] = nbr % 10 + 48;
 		nbr /= 10;
 	}
 	if (n < 0)
-		set[0] = '-';
+		ptr[0] = '-';
 	if (n == 0)
-		set[0] = '0';
-	return (set);
+		ptr[0] = '0';
+	return (ptr);
 }
