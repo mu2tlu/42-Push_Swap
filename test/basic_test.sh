@@ -74,7 +74,22 @@ do
 	(leaks -atExit -- $ROOT/push_swap $(cat $TRACE/error_files/test_case_$i.txt) 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n"
 	rm -rf a b x y
 	printf "\none argument\n\n"
 	($ROOT/push_swap "$(cat $TRACE/error_files/test_case_$i.txt)" >stdout 2>stderr) & pid=$!
@@ -106,7 +121,22 @@ do
 	(leaks -atExit -- $ROOT/push_swap "$(cat $TRACE/error_files/test_case_$i.txt)" 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-  
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n\n"
 	rm -rf a b x y
 done
 
@@ -140,7 +170,22 @@ printf "test_case_16\n\n"
 	(leaks -atExit -- $ROOT/push_swap "123 1 2" "654 456 123" 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-  
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n\n"
 	rm -rf a b x y
 
 printf "\n\nERROR_TEST\n\nresult : $FLAG\nmemory : $LEAKFLAG\n\n\n"
@@ -181,7 +226,22 @@ do
 	(leaks -atExit -- $ROOT/push_swap "$(cat $TRACE/identity_files/test_case_$i.txt)" 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-  
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n\n"
 	rm -rf a b x y
 done
 
@@ -248,7 +308,22 @@ do
 	(leaks -atExit -- $ROOT/push_swap "$(cat $TRACE/size3/test_case_$i.txt)" 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-  
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n\n"
 	rm -rf a b x y
 done
 
@@ -313,7 +388,22 @@ do
 	(leaks -atExit -- $ROOT/push_swap "$(cat $TRACE/size5/test_case_$i.txt)" 1>a 2>b) & pid=$!
 	(sleep $TIME_LIMIT && kill -HUP $pid) 2>/dev/null & watcher=$!
 	wait $pid 2>/dev/null;
-  
+	grep ": 0 leaks for 0 total leaked bytes" a > x
+	grep "not found" b > y
+	if [[ -s x ]];
+	then
+		TEMPLEAK="${GREEN}NO LEAKS${NOCOLOR}"
+	else
+		if [[ -s y ]];
+		then
+			TEMPLEAK="leaks command not found"
+			LEAKFLAG="leaks command not found"
+		else
+			TEMPLEAK="${RED}LEAKS	${NOCOLOR}"
+			LEAKFLAG="${RED}LEAKS	${NOCOLOR}"
+		fi
+	fi
+	printf "$TEMPLEAK\n\n"
 	rm -rf a b x y
 done
 

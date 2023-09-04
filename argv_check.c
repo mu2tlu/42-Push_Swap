@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/03 21:59:20 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:26:54 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	the_numbers_ordered(char **av)
 		}
 		if (flag == 0)
 		{
-			if (i >= 1 && num > ft_atoi(av[i - 1]))
+			if (i >= 1 && num < ft_atoi(av[i - 1]))
 				flag = 1;
 		}
 		i++;
@@ -44,19 +44,28 @@ int	the_numbers_ordered(char **av)
 	return (flag);
 }
 
-int	sort_check(char **av, int len, char *tab)
+int	sort_check(char **av, char *tab)
 {
 	int		i_check;
-	int		i;
 	long	num;
+	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	num = ft_atoi(tab);
-	while (i < len)
+	while (av[i])
 	{
 		i_check = ft_atoi(av[i]);
 		if (i_check == num)
-			f_exit();
+		{
+			j += 1;
+			if (j >= 2)
+			{
+				free_tab(av);
+				f_exit();
+			}
+		}
 		i++;
 	}
 	return (num);

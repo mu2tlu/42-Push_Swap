@@ -11,7 +11,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
-            "args": ["3 5 20  9 8 1 432"],
+            "args": ["2 1 3 6 5 8 1"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

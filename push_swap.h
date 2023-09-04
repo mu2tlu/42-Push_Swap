@@ -29,7 +29,7 @@ void	free_tab(char **tab);
 int		calculate_size(char **av);
 int		the_numbers_ordered(char **av);
 int		push_arg(t_stack **node, int num);
-int		sort_check(char **av, int len, char *tab);
+int		sort_check(char **av, char *tab);
 long	ft_atoll(char *str);
 void	ff_error(t_stack	**stack_a, t_stack	**stack_b);
 void	f_error(t_stack	**stack);

@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/03 21:24:35 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:47:46 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ int	calculate_size(char **av)
 		x = 0;
 		while (av[y][x])
 		{
-			if ((av[y][x] >= '0' && av[y][x] <= '9') && av[y][x + 1] 
-				&& (av[y][x + 1] == 32 
-				|| (av[y][x + 1] >= 9 && av[y][x + 1] <= 13)))
+			if ((av[y][x] >= '0' && av[y][x] <= '9') 
+			&& av[y][x + 1] && (av[y][x + 1] == ' ' 
+			|| (av[y][x + 1] >= 9 && av[y][x + 1] <= 13)))
+			{
 				k++;
-			while (!(av[y][x] >= '0' && av[y][x] <= '9') && av[y][x])
-				x++;
+			}
 			x++;
 		}
 		y++;
@@ -90,7 +90,7 @@ char	**new_av(char **av)
 	int		k;
 
 	i = -1;
-	k = -1;
+	k = 0;
 	tab1 = (char **) malloc((calculate_size(av)));
 	if (!tab1)
 		return (NULL);
@@ -102,12 +102,12 @@ char	**new_av(char **av)
 		j = -1;
 		while (++j, tab2[j])
 		{
-			tab1[++k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
-			ft_strlcpy(tab1[k], tab2[j], ft_strlen(tab2[j]) + 1);
+			tab1[k] = (char *)malloc((ft_strlen(tab2[j]) + 1) * sizeof(char));
+			ft_strlcpy(tab1[k++], tab2[j], ft_strlen(tab2[j]) + 1);
 		}
 		free_tab(tab2);
 	}
-	return (tab1);
+	return (tab1[k] = 0, tab1);
 }
 
 void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
@@ -121,14 +121,14 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	tab = new_av(av);
 	if (!tab)
 		return ;
-	if (the_numbers_ordered(tab) == 1)
+	if (the_numbers_ordered(tab) == 0)
 	{
 		free_tab(tab);
 		exit(-1);
 	}
 	while (tab[i])
 	{
-		error_i = push_arg(stack_a, sort_check(tab, i, tab[i]));
+		error_i = push_arg(stack_a, sort_check(tab, tab[i]));
 		if (error_i == -1)
 			f_error(&*stack_a);
 		i++;
