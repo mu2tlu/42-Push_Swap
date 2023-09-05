@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
-            "args": ["9 8 7 6 5 4 3 33 2 1"],
+            "args": ["22 22 2"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

@@ -16,8 +16,6 @@ void	ff_error(t_stack	**stack_a, t_stack	**stack_b)
 {
 	t_stack	*temp;
 
-	if (!(*stack_a) && !(*stack_b))
-		return ;
 	while (*stack_a)
 	{
 		temp = (*stack_a);
@@ -37,8 +35,6 @@ void	f_error(t_stack	**stack)
 {
 	t_stack	*temp;
 
-	if (!*stack)
-		return ;
 	while (*stack)
 	{
 		temp = (*stack);
