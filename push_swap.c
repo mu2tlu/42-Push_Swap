@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac > 1)
 		argv((av + 1), &stack_a, &stack_b);
-	printnode(stack_a);
 	ff_error(&stack_a, &stack_b);
 	return (0);
 }
