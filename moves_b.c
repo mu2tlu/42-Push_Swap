@@ -6,20 +6,21 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:38:05 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/05 16:41:10 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/05 18:32:50 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, int b)
 {
 	if (!*stack_a)
 		return ;
 	if (push(stack_b, pop(stack_a)) == -1)
 		ff_error(stack_a, stack_b);
-	write(1, "pb\n", 3);
+	if (b == 1)
+		write(1, "pb\n", 3);
 }
 
 void	sb(t_stack **stack_b, int b)

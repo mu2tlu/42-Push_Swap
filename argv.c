@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/05 16:41:51 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/05 21:29:42 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	free_tab(char **tab)
 	while (tab[i])
 	{
 		free(tab[i]);
+		tab[i] = NULL;
 		i++;
 	}
 	free(tab);
@@ -128,7 +129,7 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	}
 	while (tab[i])
 	{
-		error_i = push_arg(stack_a, sort_check(tab, tab[i]));
+		error_i = push_arg(stack_a, sort_check(tab, tab[i], stack_a));
 		if (error_i == -1)
 			f_error(stack_a);
 		i++;

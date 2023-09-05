@@ -6,7 +6,7 @@
 #    By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/03 16:18:56 by mumutlu           #+#    #+#              #
-#    Updated: 2023/09/03 17:00:03 by mumutlu          ###   ########.fr        #
+#    Updated: 2023/09/05 20:45:08 by mumutlu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC = 	ft_isalpha.c	\
 	ft_tolower.c 		\
 	ft_strchr.c 		\
 	ft_strrchr.c 		\
+	ft_strcmp.c 		\
 	ft_strncmp.c 		\
 	ft_memchr.c 		\
 	ft_memcmp.c 		\
@@ -47,7 +48,9 @@ SRC = 	ft_isalpha.c	\
 	ft_putchar_fd.c 	\
 	ft_putstr_fd.c 		\
 	ft_putendl_fd.c 	\
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c		\
+	get_next_line_utils.c \
+	get_next_line.c
 
 BONUS = ft_lstnew.c 	\
 	ft_lstadd_front.c 	\

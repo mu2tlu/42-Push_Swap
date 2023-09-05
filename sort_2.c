@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:19:17 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/03 13:48:11 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/05 18:38:17 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	sort_three_a_i(t_stack **a, t_stack **b, int len)
 		else if (len == 3 && !((*a)->next->next->data > (*a)->data
 				&& (*a)->next->next->data > (*a)->next->data))
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			len--;
 		}
 		else if ((*a)->data > (*a)->next->data)
 			sa(a, 1);
 		else if (len++)
-			pa(a, b);
+			pa(a, b, 1);
 	}
 }
 
@@ -61,7 +61,7 @@ void	sort_small_b_i(t_stack **b, t_stack **a, int len)
 				|| (len == 3
 					&& (*b)->data > (*b)->next->next->data)))
 		{
-			pa(a, b);
+			pa(a, b, 1);
 			len--;
 		}
 		else
@@ -72,13 +72,13 @@ void	sort_small_b_i(t_stack **b, t_stack **a, int len)
 void	sort_small_b(t_stack **b, t_stack **a, int len)
 {
 	if (len == 1)
-		pa(a, b);
+		pa(a, b, 1);
 	else if (len == 2)
 	{
 		if ((*b)->data < (*b)->next->data)
 			sb(b, 1);
 		while (len--)
-			pa(a, b);
+			pa(a, b, 1);
 	}
 	else if (len == 3)
 	{

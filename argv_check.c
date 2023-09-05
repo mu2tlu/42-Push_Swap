@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/04 18:26:54 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/05 21:31:47 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	the_numbers_ordered(char **av)
 	return (flag);
 }
 
-int	sort_check(char **av, char *tab)
+int	sort_check(char **av, char *tab, t_stack **stack_a)
 {
 	int		i_check;
 	long	num;
@@ -63,7 +63,7 @@ int	sort_check(char **av, char *tab)
 			if (j >= 2)
 			{
 				free_tab(av);
-				f_exit();
+				f_error(stack_a);
 			}
 		}
 		i++;

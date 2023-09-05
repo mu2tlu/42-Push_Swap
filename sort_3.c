@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:19:32 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/03 13:57:08 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/05 18:38:38 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	sort_a(t_stack **a, t_stack **b, int len, int count)
 	while (len != i / 2 + i % 2)
 	{
 		if ((*a)->data < pivot && (len--))
-			pb(a, b);
+			pb(a, b, 1);
 		else if (++count)
 			ra(a, 1);
 	}
@@ -47,7 +47,7 @@ int	sort_b(t_stack **b, t_stack **a, int len, int count)
 
 	if (!count && is_sorted(b, 'b', len))
 		while (len--)
-			pa(a, b);
+			pa(a, b, 1);
 	if (len <= 3)
 	{
 		sort_small_b(b, a, len);
@@ -59,7 +59,7 @@ int	sort_b(t_stack **b, t_stack **a, int len, int count)
 	while (len != i / 2)
 	{
 		if ((*b)->data >= pivot && (len--))
-			pa(a, b);
+			pa(a, b, 1);
 		else if (++count)
 			rb(b, 1);
 	}
