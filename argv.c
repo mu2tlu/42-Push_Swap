@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:18:15 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/05 23:18:43 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/09 14:33:23 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 	int		error_i;
 	int		i;
 
-	i = 0;
+	i = -1;
 	diff_char_check(av);
 	tab = new_av(av);
 	if (!tab)
@@ -126,12 +126,14 @@ void	argv(char **av, t_stack **stack_a, t_stack **stack_b)
 		free_tab(tab);
 		exit(-1);
 	}
-	while (tab[i])
+	while (++i, tab[i])
 	{
 		error_i = push_arg(stack_a, sort_check(tab, tab[i], stack_a));
 		if (error_i == -1)
+		{
+			free_tab(tab);
 			f_error(stack_a);
-		i++;
+		}
 	}
 	free_tab(tab);
 	ft_sort(stack_a, stack_b, ft_stacksize(*stack_a));

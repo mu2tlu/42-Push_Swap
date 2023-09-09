@@ -59,15 +59,17 @@ void	ft_sort(t_stack **a, t_stack **b, int len);
 int		sort_a(t_stack **a, t_stack **b, int len, int count);
 int		sort_b(t_stack **b, t_stack **a, int len, int count);
 size_t	ft_stacksize(t_stack *stack);
+
+void	free_error(char *rule, t_stack **a, t_stack **b);
+void	run_rules(char *rule, t_stack **a, t_stack **b);
+void	ft_instructions(t_stack **a, t_stack **b);
 void	argv_checker(char **av, t_stack **stack_a, t_stack **stack_b);
 
 char	*get_next_line(int fd);
 void	*ft_free_stash(char **stash, int create_line);
-
-char	*ft_recreate_stash(char *stash);
-char	*ft_copy_to_stash(char *stash, char *buf);
-int		ft_have_nl(char *s);
 char	*ft_extract_line(char *stash);
+int		ft_have_nl(char *s);
+char	*ft_copy_to_stash(char *stash, char *buf);
+char	*ft_recreate_stash(char *stash);
 
-void	printnode(t_stack *node);//dikkat
 #endif

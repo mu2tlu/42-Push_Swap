@@ -6,13 +6,13 @@
 #    By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/03 16:18:56 by mumutlu           #+#    #+#              #
-#    Updated: 2023/09/05 20:45:08 by mumutlu          ###   ########.fr        #
+#    Updated: 2023/09/07 17:50:52 by mumutlu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = 	ft_isalpha.c	\
 	ft_isdigit.c 		\

@@ -1,19 +1,15 @@
 NAME = 	push_swap
 B_NAME = checker
 CC = 	gcc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 SRC = 	push_swap.c pop_push_argv.c argv_check.c ff_error.c argv.c \
 		moves.c moves_a.c moves_b.c sort_1.c sort_2.c sort_3.c \
-		printnode.c
+
 BONUS = checker.c pop_push_argv.c argv_check.c ff_error.c argv.c \
 		moves.c moves_a.c moves_b.c sort_1.c sort_2.c sort_3.c \
-		printnode.c
 		
-
 OBJS = $(SRC:%.c=%.o)
 B_OBJS = $(BONUS:%.c=%.o)
-
-
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
