@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:58:29 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/09 14:34:26 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/10 20:01:13 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,6 @@ void	argv_checker(char **av, t_stack **stack_a, t_stack **stack_b)
 	tab = new_av(av);
 	if (!tab)
 		return ;
-	if (the_numbers_ordered(tab) == 0)
-	{
-		free_tab(tab);
-		exit(-1);
-	}
 	while (++i, tab[i])
 	{
 		error_i = push_arg(stack_a, sort_check(tab, tab[i], stack_a));
