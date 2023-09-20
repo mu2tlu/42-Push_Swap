@@ -6,7 +6,7 @@
 /*   By: mumutlu <mumutlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:00:39 by mumutlu           #+#    #+#             */
-/*   Updated: 2023/09/05 23:26:15 by mumutlu          ###   ########.fr       */
+/*   Updated: 2023/09/20 15:21:29 by mumutlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,25 +100,26 @@ void	diff_char_check(char	**av)
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
+	i = -1;
 	space_or_empty_check(av);
-	while (av[i])
+	while (av[++i])
 	{
-		j = 0;
-		while (av[i][j])
+		j = -1;
+		while (av[i][++j])
 		{
 			if (av[i][j] == '+' || av[i][j] == '-')
 			{
-				if (av[i][j + 1] == '\0' 
+				if (av[i][j + 1] == '\0'
 					|| (!(av[i][j + 1] >= '0' && av[i][j + 1] <= '9')))
 					f_exit();
+				if (j > 0 && (!(av[i][j] == '+' || av[i][j] == '-')
+					|| !(av[i][j - 1] == 32
+					|| (av[i][j - 1] >= 9 && av[i][j - 1] <= 13))))
+					f_exit();
 			}
-			else if (!(av[i][j] >= '0' && av[i][j] <= '9') 
+			else if (!(av[i][j] >= '0' && av[i][j] <= '9')
 				&& !(av[i][j] == 32 || (av[i][j] >= 9 && av[i][j] <= 13)))
 				f_exit();
-			j++;
 		}
-		i++;
 	}
 }
