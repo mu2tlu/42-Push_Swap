@@ -28,6 +28,7 @@ char	**new_av(char **av);
 void	free_tab(char **tab);
 int		calculate_size(char **av);
 int		the_numbers_ordered(char **av);
+void	max_min_int(char **av);
 int		push_arg(t_stack **node, int num);
 int		sort_check(char **av, char *tab, t_stack **stack_a);
 long	ft_atoll(char *str);
